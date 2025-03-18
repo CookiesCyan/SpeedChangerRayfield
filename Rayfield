@@ -2,8 +2,8 @@
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
 local Window = Rayfield:CreateWindow({
-    Name = "Speed",
-    Icon = 78741124082850, -- Icon in Topbar. Can use Lucide Icons (string) or Roblox Image (number). 0 to use no icon (default).
+    Name = "Speed And Jump",
+    Icon = 9011713775, -- Icon in Topbar. Can use Lucide Icons (string) or Roblox Image (number). 0 to use no icon (default).
     LoadingTitle = "Loading..",
     LoadingSubtitle = "by CookiesCyan",
     Theme = "Default", -- Check https://docs.sirius.menu/rayfield/configuration/themes
@@ -23,15 +23,15 @@ local Window = Rayfield:CreateWindow({
        RememberJoins = true -- Set this to false to make them join the discord every time they load it up
     },
  
-    KeySystem = true, -- Set this to true to use our key system
+    KeySystem = false, -- Set this to true to use our key system
     KeySettings = {
-       Title = "Key system | Speed  Changer",
-       Subtitle = "",
-       Note = "Discord", -- Use this to tell the user how to get a key
+       Title = "Untitled",
+       Subtitle = "Key System",
+       Note = "No method of obtaining the key is provided", -- Use this to tell the user how to get a key
        FileName = "Key", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
        SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
        GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
-       Key = {"BloxTeam"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+       Key = {"Hello"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
     }
  })
 
@@ -63,6 +63,33 @@ local Window = Rayfield:CreateWindow({
 
 
 
+
+
+MainTab:CreateSlider({
+   Name = "Jump Power",
+   Range = {50, 200}, -- Jump Power range
+   Increment = 5,
+   Suffix = "Power",
+   CurrentValue = 50, -- Default value
+   Flag = "JumpPower",
+   Callback = function(Value)
+       local humanoid = game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid")
+       if humanoid then
+           humanoid.UseJumpPower = true
+           humanoid.JumpPower = Value
+       end
+   end
+})
+
+
+
+
+
+
+
+
+
+
 local CreditsTab = Window:CreateTab("Credits", nil) -- Title, Image
 
 
@@ -78,10 +105,41 @@ CreditsTab:CreateButton({
             Title = "Copied to Clipboard",
             Content = "The Discord invite link has been copied to your clipboard.",
             Duration = 3,
-            Image = 4483362458
+            Image = 18810599582
         })
     end
 })
+
+
+
+
+
+
+
+
+CreditsTab:CreateButton({
+   Name = "Copy Youtube ",
+   Callback = function()
+       -- Use setclipboard to copy the Discord invite link to the clipboard
+       setclipboard("https://www.youtube.com/channel/UCtjNV4KCnDjFNCgRs9WB-Yw")
+       Rayfield:Notify({
+           Title = "Copied to Clipboard",
+           Content = "Subsribe!!",
+           Duration = 3,
+           Image = 18810599582
+       })
+   end
+})
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -132,6 +190,16 @@ local Slider = BloxFruitsTab:CreateSlider({
 
 
 
+
+
+
+
+
+
+
+
+
+
  local OtherTab = Window:CreateTab("Other", nil) -- Title, Image
 
 
@@ -150,6 +218,30 @@ local Slider = BloxFruitsTab:CreateSlider({
     loadstring(game:HttpGet("https://raw.githubusercontent.com/infyiff/backup/main/dex.lua"))()
     end,
  })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ local RandomTab = Window:CreateTab("Random", nil) -- Title, Image
+
+
+
+ local Button = RandomTab:CreateButton({
+   Name = "Fling Things And people",
+   Callback = function()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/Artss1/Flades_Hub/refs/heads/main/We%20Are%20Arts.lua"))()
+   end,
+})
 
 
 
