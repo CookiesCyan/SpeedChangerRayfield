@@ -18,16 +18,16 @@ local Window = Rayfield:CreateWindow({
     },
  
     Discord = {
-       Enabled = false, -- Prompt the user to join your Discord server if their executor supports it
-       Invite = "noinvitelink", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ ABCD would be ABCD
+       Enabled = True, -- Prompt the user to join your Discord server if their executor supports it
+       Invite = "https://discord.gg/PsZFK8YMbn", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ ABCD would be ABCD
        RememberJoins = true -- Set this to false to make them join the discord every time they load it up
     },
  
     KeySystem = true, -- Set this to true to use our key system
     KeySettings = {
-       Title = "Key system - Speed and Jump",
+       Title = "Key system | Speed and Jump",
        Subtitle = "",
-       Note = "DISCORDDD", -- Use this to tell the user how to get a key
+       Note = "Discord Server", -- Use this to tell the user how to get a key
        FileName = "Key", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
        SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
        GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
@@ -96,23 +96,6 @@ local CreditsTab = Window:CreateTab("Credits", nil) -- Title, Image
 local Label = CreditsTab:CreateLabel("Made by CookiesCyan", 4483362458, Color3.fromRGB(255, 255, 255), false) -- Title, Icon, Color, IgnoreTheme
 
 
-CreditsTab:CreateButton({
-    Name = "Copy Discord ",
-    Callback = function()
-        -- Use setclipboard to copy the Discord invite link to the clipboard
-        setclipboard("https://discord.gg/PsZFK8YMbn")
-        Rayfield:Notify({
-            Title = "Copied to Clipboard",
-            Content = "The Discord invite link has been copied to your clipboard.",
-            Duration = 3,
-            Image = 18810599582
-        })
-    end
-})
-
-
-
-
 
 
 
@@ -130,17 +113,6 @@ CreditsTab:CreateButton({
        })
    end
 })
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -242,6 +214,22 @@ local Slider = BloxFruitsTab:CreateSlider({
    loadstring(game:HttpGet("https://raw.githubusercontent.com/Artss1/Flades_Hub/refs/heads/main/We%20Are%20Arts.lua"))()
    end,
 })
+
+
+
+
+
+
+
+local Button = RandomTab:CreateButton({
+   Name = "FlySystem M to open PC ONLY",
+   Callback = function()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/CookiesCyan/fly-script/refs/heads/main/flyscript"))()
+   end,
+})
+
+
+
 
 
 
