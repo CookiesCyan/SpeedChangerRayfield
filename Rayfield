@@ -236,6 +236,31 @@ local Button = RandomTab:CreateButton({
 
 
 
+local Button = Tab:CreateButton({
+   Name = "FlySystem Mobile Test",
+   Callback = function()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/CookiesCyan/fly-script/refs/heads/main/mobile%20script%20test"))()
+
+      Rayfield:Notify({
+         Title = "Please test this mobile users.",
+         Content = "Tell all bugs in the Discord.",
+         Duration = 6.5,
+         Image = nil,
+      })
+   end,
+})
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
